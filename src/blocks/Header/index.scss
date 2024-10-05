@@ -4,12 +4,13 @@
 }
 
 .header {
-    height: 100vh;
+    height: 100dvh;
     background-image: url('/mobile/image-hero.jpg');
     background-size: cover;
 
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 
     &__wrapper {
         flex-grow: 1;
@@ -18,9 +19,12 @@
         justify-content: center;
         align-items: stretch;
     }
+
     &__h1 {
         text-transform: uppercase;
         border: 3px solid var(--color-white);
         padding: 2rem;
+        color: var(--color-white);
+        font-size: calc(14cqi - 1rem);
     }
 }

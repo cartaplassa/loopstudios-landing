@@ -3,7 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  /*color-scheme: light dark;*/
   font-family: "Alata", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -20,7 +20,7 @@
 }
 
 html {
-  height: 100%;
+  min-height: 100vh;
 }
 
 h1, h2, h3, .josefin {

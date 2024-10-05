@@ -1,0 +1,21 @@
+.creation {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    margin: 0;
+    width: 60%;
+    color: var(--color-white);
+    text-transform: uppercase;
+    font-size: 1.6em;
+    line-height: 1em;
+  }
+  
+  &__wrapper {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 1em;
+  }
+}
