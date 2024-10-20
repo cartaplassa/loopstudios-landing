@@ -1,6 +1,6 @@
 import './index.scss'
 
-function Creation({heading, img}) {
+function Creation({heading, img}: {heading: string, img: string}) {
   return (
     <article className="creation">
       <img className="creation__image" src={img} alt={heading} />
