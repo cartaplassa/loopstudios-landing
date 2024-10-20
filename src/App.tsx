@@ -2,6 +2,7 @@ import './App.scss'
 import Header from '@blocks/Header'
 import Description from '@blocks/Description'
 import Creations from '@blocks/Creations'
+import Footer from '@blocks/Footer'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Header/>
       <Description/>
       <Creations/>
+      <Footer/>
     </main>
   )
 }
