@@ -1,5 +1,6 @@
-import './index.scss'
+import Nav from '@components/Nav'
 
+import './index.scss'
 import Logo from '/logo.svg'
 import IconFacebook from '/icon-facebook.svg'
 import IconTwitter from '/icon-twitter.svg'
@@ -10,9 +11,7 @@ function Footer() {
   return (
     <footer className="footer">
       <img className="footer__logo" src={Logo} alt="Loopstudios logo" />
-      {["About", "Careers", "Events", "Products", "Support"].map((el)=>(
-        <a href="#" className="footer__link" key={el}>{el}</a>
-      ))}
+      <Nav/>
       <div className="footer__icon-wrapper">
         <a href="#" className="footer__icon-link"><img src={IconFacebook} alt="Facebook" /></a>
         <a href="#" className="footer__icon-link"><img src={IconTwitter} alt="Twitter" /></a>

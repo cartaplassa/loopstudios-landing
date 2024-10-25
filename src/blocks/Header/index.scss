@@ -1,9 +1,9 @@
-.nav {
+.header {
     display: flex;
     justify-content: space-between;
 }
 
-.header {
+.start {
     height: 100dvh;
     background-image: url('/mobile/image-hero.jpg');
     background-size: cover;
@@ -27,4 +27,13 @@
         color: var(--color-white);
         font-size: calc(14cqi - 1rem);
     }
+
+    &__nav {
+        margin-top: 2em
+    }
+
+    & > .ReactCollapse--collapse {
+        transition: height 500ms;
+    }
 }
+
