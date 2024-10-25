@@ -1,8 +1,6 @@
-import React from 'react'
-
 import './index.scss'
 
-function Nav({ className }) {
+function Nav({ className }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <nav className={"nav" + (className ? " " + className : "")}>
         {["About", "Careers", "Events", "Products", "Support"].map((el)=>(
