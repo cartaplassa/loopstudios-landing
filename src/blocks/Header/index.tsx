@@ -7,7 +7,7 @@ import Menu from '/icon-hamburger.svg'
 import Nav from '@components/Nav'
 
 
-function Header({ isDesktop }: { boolean }) {
+function Header({ isDesktop }: { isDesktop: boolean }) {
   const [isNavVisible, setNavVisible] = useState(false);
   const toggleNavVisible = () => setNavVisible(!isNavVisible);
 
@@ -18,7 +18,7 @@ function Header({ isDesktop }: { boolean }) {
         {
           !isDesktop ?
           <img src={Menu} alt="Menu" onClick={toggleNavVisible} /> :
-          <Nav isDesktop className="start__nav"/>
+          <Nav className="start__nav"/>
         }
       </header>
       {

@@ -1,6 +1,7 @@
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .start {
@@ -43,8 +44,15 @@
     }
 }
 
+
+@media screen and (min-width: 600px) {
+    .start {
+        background-image: url('/desktop/image-hero.jpg');
+    }
+}
+
 .main--desktop .start {
-    background-image: url('/desktop/image-hero.jpg');
+    height: 43em;
     
     &__nav {
         margin-top: 0
