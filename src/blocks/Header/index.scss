@@ -7,6 +7,7 @@
     height: 100dvh;
     background-image: url('/mobile/image-hero.jpg');
     background-size: cover;
+    background-position: center;
 
     display: flex;
     flex-direction: column;
@@ -17,15 +18,20 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: stretch;
+        align-items: start;
     }
 
-    &__h1 {
+    &__motto {
         text-transform: uppercase;
         border: 3px solid var(--color-white);
         padding: 2rem;
         color: var(--color-white);
         font-size: calc(14cqi - 1rem);
+
+        @media screen and (min-width: 650px) {
+            max-width: 8em;
+            font-size: 5em;
+        }
     }
 
     &__nav {
@@ -37,3 +43,10 @@
     }
 }
 
+.main--desktop .start {
+    background-image: url('/desktop/image-hero.jpg');
+    
+    &__nav {
+        margin-top: 0
+    }
+}

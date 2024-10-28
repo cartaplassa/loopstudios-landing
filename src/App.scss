@@ -15,4 +15,10 @@
   & > * {
     padding: 2em;
   }
+
+  &--desktop {
+    & > * {
+      padding: 3em 8em;
+    }
+  }
 }

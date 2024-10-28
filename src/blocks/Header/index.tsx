@@ -7,22 +7,29 @@ import Menu from '/icon-hamburger.svg'
 import Nav from '@components/Nav'
 
 
-function Header() {
+function Header({ isDesktop }: { boolean }) {
   const [isNavVisible, setNavVisible] = useState(false);
   const toggleNavVisible = () => setNavVisible(!isNavVisible);
 
   return (
     <div className='start'>
-        <header className='header'>
-            <img src={Logo} alt="Loopstudios logo" />
-            <img src={Menu} alt="Menu" onClick={toggleNavVisible} />
-        </header>
+      <header className='header'>
+        <img src={Logo} alt="Loopstudios logo" />
+        {
+          !isDesktop ?
+          <img src={Menu} alt="Menu" onClick={toggleNavVisible} /> :
+          <Nav isDesktop className="start__nav"/>
+        }
+      </header>
+      {
+        !isDesktop && 
         <Collapse isOpened={isNavVisible}>
           <Nav className="start__nav"/>
         </Collapse>
-        <div className="start__wrapper">
-            <h1 className='start__h1'>Immersive experiences that deliver</h1>
-        </div>
+      }
+      <div className="start__wrapper">
+        <h2 className='start__motto'>Immersive experiences that deliver</h2>
+      </div>
     </div>
   )
 }

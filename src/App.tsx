@@ -3,14 +3,16 @@ import Header from '@blocks/Header'
 import Description from '@blocks/Description'
 import Creations from '@blocks/Creations'
 import Footer from '@blocks/Footer'
+import useMinWidth from '@hooks/useMinWidth'
 
 function App() {
+  const isDesktop = useMinWidth(1000);
   return (
-    <main className='main'>
-      <Header/>
-      <Description/>
-      <Creations/>
-      <Footer/>
+    <main className={'main' + (isDesktop ? ' main--desktop' : '')}>
+      <Header isDesktop={isDesktop} />
+      <Description />
+      <Creations />
+      <Footer />
     </main>
   )
 }
