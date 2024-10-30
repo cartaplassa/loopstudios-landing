@@ -25,4 +25,21 @@
   &__icon-link + &__icon-link {
     margin-left: 1em;
   }
+
+  &--desktop {
+    $padding: 3em;
+    padding-top: $padding;
+    padding-bottom: $padding;
+    align-items: stretch;
+    gap: 2em;
+
+    .footer__flex {
+        display: flex;
+        justify-content: space-between;
+
+        & > * {
+            margin: 0
+        }
+    }
+  }
 }
