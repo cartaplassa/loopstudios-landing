@@ -46,7 +46,8 @@ function Creations({isDesktop}: {isDesktop: boolean}) {
     const isGrid = useMinWidth(600);
 
     return (
-        <section className="creations">
+        <section
+            className={"creations" + (isDesktop ? " creations--desktop" : "")}>
             <div
                 className={
                     "creations__header" +

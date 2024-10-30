@@ -1,4 +1,8 @@
 .creations {
+  &--desktop {
+    padding-bottom: 12em;
+  }
+
   &__header {
     display: flex;
     justify-content: space-around;
