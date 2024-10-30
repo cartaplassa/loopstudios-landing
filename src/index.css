@@ -53,7 +53,18 @@ body {
   height: 100%;
 }
 
-h1, h2 {
+h1 {
   font-size: 3.2em;
   line-height: 1;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.main--desktop h2 {
+    font-size: 3em;
 }
