@@ -5,8 +5,10 @@ import "./index.scss";
 import Logo from "/logo.svg";
 import Menu from "/icon-hamburger.svg";
 import Nav from "@components/Nav";
+import useMinWidth from "@hooks/useMinWidth";
 
-function Header({isDesktop}: {isDesktop: boolean}) {
+function Header() {
+    const isDesktop = useMinWidth(1000);
     const [isNavVisible, setNavVisible] = useState(false);
     const toggleNavVisible = () => setNavVisible(!isNavVisible);
 

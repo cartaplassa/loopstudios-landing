@@ -9,7 +9,7 @@ function App() {
     const isDesktop = useMinWidth(1000);
     return (
         <main className={"main" + (isDesktop ? " main--desktop" : "")}>
-            <Header isDesktop={isDesktop} />
+            <Header />
             <Description />
             <Creations />
             <Footer />
