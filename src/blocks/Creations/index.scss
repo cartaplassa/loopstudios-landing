@@ -1,4 +1,13 @@
 .creations {
+  &__header {
+    display: flex;
+    justify-content: space-around;
+
+    &--desktop {
+        justify-content: space-between;
+    }
+  }
+
   &__heading {
     text-align: center;
     margin-bottom: 1.6em;
@@ -8,13 +17,26 @@
     display: flex;
     flex-direction: column;
     gap: 1.5em;
-  }
 
-  &__link-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 2em;
+    &--grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
   }
+}
+
+@media screen and (min-width: 750px) {
+    .creations {
+        &__wrapper {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
+
+.see-all {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
 
   &__link {
     color: var(--color-black);
@@ -23,5 +45,6 @@
     border: 2px solid var(--color-black);
     padding: .7em 2.5em;
     margin-bottom: 4em;
+    height: fit-content;
   }
 }

@@ -1,8 +1,7 @@
 import "./index.scss";
 
-import {useMediaQuery} from "react-responsive";
-
 import Creation from "@components/Creation";
+import useMinWidth from "@hooks/useMinWidth";
 
 import ImageMobileDeepEarth from "/mobile/image-deep-earth.jpg";
 import ImageMobileNightArcade from "/mobile/image-night-arcade.jpg";
@@ -25,36 +24,52 @@ import ImageDesktopFisheye from "/desktop/image-fisheye.jpg";
 const creations: Record<string, string[]> = {
     "Deep Earth": [ImageMobileDeepEarth, ImageDesktopDeepEarth],
     "Night Arcade": [ImageMobileNightArcade, ImageDesktopNightArcade],
-    "Soccer Team VR": [ImageMobileSoccerTeam, ImageDesktopSoccerTeam],
+    "Soccer Team\u00A0VR": [ImageMobileSoccerTeam, ImageDesktopSoccerTeam],
     "The Grid": [ImageMobileGrid, ImageDesktopGrid],
-    "From Up Above VR": [ImageMobileFromAbove, ImageDesktopFromAbove],
+    "From\u00A0Up Above\u00A0VR": [ImageMobileFromAbove, ImageDesktopFromAbove],
     "Pocket Borealis": [ImageMobilePocketBorealis, ImageDesktopPocketBorealis],
     "The Curiosity": [ImageMobileCuriosity, ImageDesktopCuriosity],
-    "Make It Fisheye": [ImageMobileFisheye, ImageDesktopFisheye],
+    "Make\u00A0It Fisheye": [ImageMobileFisheye, ImageDesktopFisheye],
 };
 
-function Creations() {
-    const isDesktop = useMediaQuery({query: "(min-width: 800px)"});
+function Link() {
+    return (
+        <div className="see-all">
+            <a className="see-all__link" href="#">
+                See all
+            </a>
+        </div>
+    );
+}
+
+function Creations({isDesktop}: {isDesktop: boolean}) {
+    const isGrid = useMinWidth(600);
 
     return (
         <section className="creations">
-            <h2 className="creations__heading">Our creations</h2>
-            <div className="creations__wrapper">
+            <div
+                className={
+                    "creations__header" +
+                    (isDesktop ? " creations__header--desktop" : "")
+                }>
+                <h2 className="creations__heading">Our creations</h2>
+                {isDesktop && <Link />}
+            </div>
+            <div
+                className={
+                    "creations__wrapper" +
+                    (isGrid ? " creations__wrapper--grid" : "")
+                }>
                 {Object.keys(creations).map(item => (
                     <Creation
                         heading={item}
-                        img={
-                            isDesktop ? creations[item][1] : creations[item][0]
-                        }
+                        imgs={creations[item]}
+                        isVertical={isGrid}
                         key={item}
                     />
                 ))}
             </div>
-            <div className="creations__link-wrapper">
-                <a className="creations__link" href="#">
-                    See all
-                </a>
-            </div>
+            {!isDesktop && <Link />}
         </section>
     );
 }

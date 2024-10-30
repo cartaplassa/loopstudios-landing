@@ -11,7 +11,7 @@ function App() {
         <main className={"main" + (isDesktop ? " main--desktop" : "")}>
             <Header />
             <Description />
-            <Creations />
+            <Creations isDesktop={isDesktop} />
             <Footer />
         </main>
     );
