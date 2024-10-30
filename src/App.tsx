@@ -9,6 +9,7 @@ function App() {
     const isDesktop = useMinWidth(1000);
     return (
         <main className={"main" + (isDesktop ? " main--desktop" : "")}>
+            <h1 style={{display: "none"}}>Loopstudios</h1>
             <Header />
             <Description />
             <Creations isDesktop={isDesktop} />
