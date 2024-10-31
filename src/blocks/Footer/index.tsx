@@ -11,25 +11,26 @@ import useMinWidth from "@hooks/useMinWidth";
 const Logo = () => (
     <img className="footer__logo" src={LogoImage} alt="Loopstudios logo" />
 );
+
 const Copyright = () => (
     <p className="footer__copyright">
         © 2021 Loopstudios. All rights reserved.
     </p>
 );
+
+const icons = {
+    Facebook: IconFacebook,
+    Twitter: IconTwitter,
+    Pinterest: IconPinterest,
+    Instagram: IconInstagram,
+};
 const Icons = () => (
     <div className="footer__icon-wrapper">
-        <a href="#" className="footer__icon-link">
-            <img src={IconFacebook} alt="Facebook" />
-        </a>
-        <a href="#" className="footer__icon-link">
-            <img src={IconTwitter} alt="Twitter" />
-        </a>
-        <a href="#" className="footer__icon-link">
-            <img src={IconPinterest} alt="Pinterest" />
-        </a>
-        <a href="#" className="footer__icon-link">
-            <img src={IconInstagram} alt="Instagram" />
-        </a>
+        {Object.keys(icons).map(el => (
+            <a href="#" className="footer__icon-link underlined" key={el}>
+                <img src={icons[el]} alt={el} />
+            </a>
+        ))}
     </div>
 );
 

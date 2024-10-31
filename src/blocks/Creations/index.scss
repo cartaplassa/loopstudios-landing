@@ -52,5 +52,18 @@
     padding: .7em 2.5em;
     margin-bottom: 4em;
     height: fit-content;
+
+    &:hover {
+      background-color: var(--color-black);
+      color: var(--color-white);
+
+      $time: 200ms;
+      $effect: background-color $time linear, 
+      color $time linear;
+      -webkit-transition: $effect;
+      -ms-transition: $effect;
+      -o-transition: $effect;
+      transition: $effect;
+    }
   }
 }

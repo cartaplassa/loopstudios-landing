@@ -22,3 +22,31 @@
     }
   }
 }
+
+.underlined {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: inline-block;
+        width: 0;
+        height: 2px;
+        background: var(--color-white);
+        transition: all 0.25s cubic-bezier(1, 0.68, 0.16, 0.9);
+    }
+  
+    &:hover {  
+        &::after {
+            width: 100%;
+            background: var(--color-white);
+        }
+    }
+}
