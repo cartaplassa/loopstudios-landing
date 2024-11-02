@@ -1,13 +1,13 @@
-@function tint($angle) {
-    @return linear-gradient(#{$angle}deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
-}
-
 @mixin effect {
     $effect: all .3s ease-in-out;
     -webkit-transition: $effect;
     -ms-transition: $effect;
     -o-transition: $effect;
     transition: $effect;
+}
+
+@function tint($angle) {
+    @return linear-gradient(#{$angle}deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
 }
 
 .creation {

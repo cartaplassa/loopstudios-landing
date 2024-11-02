@@ -1,3 +1,11 @@
+@mixin effect {
+    $effect: all .3s ease-in-out;
+    -webkit-transition: $effect;
+    -ms-transition: $effect;
+    -o-transition: $effect;
+    transition: $effect;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -6,6 +14,7 @@
 
 .start {
     height: 100dvh;
+    background-color: var(--color-black);
     background-image: url('/mobile/image-hero.jpg');
     background-size: cover;
     background-position: center;
@@ -14,6 +23,11 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+
+    @include effect;
+    @media screen and (min-width: 600px) {
+        background-image: url('/desktop/image-hero.jpg');
+    }
 
     &__wrapper {
         flex-grow: 1;
@@ -38,6 +52,11 @@
     & > .ReactCollapse--collapse {
         transition: height 500ms;
     }
+
+    &--black {
+        // box-shadow: inset 0 0 0 50cqi rgba(0,0,0);
+        background-image: none;
+    }
 }
 
 @media screen and (min-width: 650px) {
@@ -47,16 +66,12 @@
     }
 }
 
-@media screen and (min-width: 600px) {
-    .start {
-        background-image: url('/desktop/image-hero.jpg');
-    }
-}
-
 .main--desktop .start {
     height: 43em;
     
     &__nav {
         margin-top: 0
     }
+
+    // &--black { box-shadow: none; }
 }

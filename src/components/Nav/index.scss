@@ -7,6 +7,18 @@
         color: var(--color-white);
         margin-bottom: 1em;
     }
+
+    &--aligned {
+        text-transform: uppercase;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: 2em;
+        flex-grow: 1;
+
+        & > .nav__link, & > .nav__link:visited {
+            margin-bottom: .5em;
+        }
+    }
 }
 
 .main--desktop .nav {
