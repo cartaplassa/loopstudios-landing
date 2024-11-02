@@ -18,7 +18,9 @@ const Copyright = () => (
     </p>
 );
 
-const icons = {
+const icons: {
+    [key: string]: string;
+} = {
     Facebook: IconFacebook,
     Twitter: IconTwitter,
     Pinterest: IconPinterest,

@@ -1,4 +1,3 @@
-import {Collapse} from "react-collapse";
 import {useState} from "react";
 
 import "./index.scss";
