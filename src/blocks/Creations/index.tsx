@@ -1,38 +1,22 @@
+import clsx from "clsx";
+
 import "./index.scss";
 
 import Creation from "@components/Creation";
 import useMinWidth from "@hooks/useMinWidth";
 
-import ImageMobileDeepEarth from "/mobile/image-deep-earth.jpg";
-import ImageMobileNightArcade from "/mobile/image-night-arcade.jpg";
-import ImageMobileSoccerTeam from "/mobile/image-soccer-team.jpg";
-import ImageMobileGrid from "/mobile/image-grid.jpg";
-import ImageMobileFromAbove from "/mobile/image-from-above.jpg";
-import ImageMobilePocketBorealis from "/mobile/image-pocket-borealis.jpg";
-import ImageMobileCuriosity from "/mobile/image-curiosity.jpg";
-import ImageMobileFisheye from "/mobile/image-fisheye.jpg";
-
-import ImageDesktopDeepEarth from "/desktop/image-deep-earth.jpg";
-import ImageDesktopNightArcade from "/desktop/image-night-arcade.jpg";
-import ImageDesktopSoccerTeam from "/desktop/image-soccer-team.jpg";
-import ImageDesktopGrid from "/desktop/image-grid.jpg";
-import ImageDesktopFromAbove from "/desktop/image-from-above.jpg";
-import ImageDesktopPocketBorealis from "/desktop/image-pocket-borealis.jpg";
-import ImageDesktopCuriosity from "/desktop/image-curiosity.jpg";
-import ImageDesktopFisheye from "/desktop/image-fisheye.jpg";
-
-const creations: Record<string, string[]> = {
-    "Deep Earth": [ImageMobileDeepEarth, ImageDesktopDeepEarth],
-    "Night Arcade": [ImageMobileNightArcade, ImageDesktopNightArcade],
-    "Soccer Team\u00A0VR": [ImageMobileSoccerTeam, ImageDesktopSoccerTeam],
-    "The Grid": [ImageMobileGrid, ImageDesktopGrid],
-    "From\u00A0Up Above\u00A0VR": [ImageMobileFromAbove, ImageDesktopFromAbove],
-    "Pocket Borealis": [ImageMobilePocketBorealis, ImageDesktopPocketBorealis],
-    "The Curiosity": [ImageMobileCuriosity, ImageDesktopCuriosity],
-    "Make\u00A0It Fisheye": [ImageMobileFisheye, ImageDesktopFisheye],
+const creations: Record<string, string> = {
+    "Deep Earth": "image-deep-earth",
+    "Night Arcade": "image-night-arcade",
+    "Soccer Team\u00A0VR": "image-soccer-team",
+    "The Grid": "image-grid",
+    "From\u00A0Up Above\u00A0VR": "image-from-above",
+    "Pocket Borealis": "image-pocket-borealis",
+    "The Curiosity": "image-curiosity",
+    "Make\u00A0It Fisheye": "image-fisheye",
 };
 
-function Link() {
+function SeeAll() {
     return (
         <div className="see-all">
             <a className="see-all__link" href="#">
@@ -42,35 +26,42 @@ function Link() {
     );
 }
 
-function Creations({isDesktop}: {isDesktop: boolean}) {
+interface CreationsProps extends React.ComponentPropsWithoutRef<"section"> {
+    isDesktop?: boolean;
+}
+
+function Creations({isDesktop = false, ...rest}: CreationsProps) {
     const isGrid = useMinWidth(600);
+    const sectionClassName = clsx(
+        "creations",
+        isDesktop && "creations--desktop",
+    );
+    const headerClassName = clsx(
+        "creations__header",
+        isDesktop && "creations__header--desktop",
+    );
+    const wrapperClassName = clsx(
+        "creations__wrapper",
+        isGrid && "creations__wrapper--grid",
+    );
 
     return (
-        <section
-            className={"creations" + (isDesktop ? " creations--desktop" : "")}>
-            <div
-                className={
-                    "creations__header" +
-                    (isDesktop ? " creations__header--desktop" : "")
-                }>
+        <section className={sectionClassName} {...rest}>
+            <div className={headerClassName}>
                 <h2 className="creations__heading">Our creations</h2>
-                {isDesktop && <Link />}
+                {isDesktop && <SeeAll />}
             </div>
-            <div
-                className={
-                    "creations__wrapper" +
-                    (isGrid ? " creations__wrapper--grid" : "")
-                }>
+            <div className={wrapperClassName}>
                 {Object.keys(creations).map(item => (
                     <Creation
                         heading={item}
-                        imgs={creations[item]}
+                        image={creations[item]}
                         isVertical={isGrid}
                         key={item}
                     />
                 ))}
             </div>
-            {!isDesktop && <Link />}
+            {!isDesktop && <SeeAll />}
         </section>
     );
 }

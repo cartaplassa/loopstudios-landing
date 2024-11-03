@@ -6,6 +6,7 @@ import Menu from "/icon-hamburger.svg";
 import Close from "/icon-close.svg";
 import Nav from "@components/Nav";
 import useMinWidth from "@hooks/useMinWidth";
+import clsx from "clsx";
 
 const Motto = () => (
     <div className="start__wrapper">
@@ -17,9 +18,10 @@ function Header() {
     const isDesktop = useMinWidth(1000);
     const [isNavVisible, setNavVisible] = useState(false);
     const toggleNavVisible = () => setNavVisible(!isNavVisible);
+    const rootClassName = clsx("start", isNavVisible && "start--black");
 
     return (
-        <div className={"start" + (isNavVisible ? " start--black" : "")}>
+        <div className={rootClassName}>
             <header className="header">
                 <img src={Logo} alt="Loopstudios logo" />
                 {!isDesktop ? (

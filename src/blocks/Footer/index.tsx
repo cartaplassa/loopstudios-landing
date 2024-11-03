@@ -18,9 +18,7 @@ const Copyright = () => (
     </p>
 );
 
-const icons: {
-    [key: string]: string;
-} = {
+const icons: Record<string, string> = {
     Facebook: IconFacebook,
     Twitter: IconTwitter,
     Pinterest: IconPinterest,

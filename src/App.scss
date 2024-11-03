@@ -5,6 +5,14 @@
 //   text-align: center;
 // }
 
+@mixin effect {
+    $effect: all 0.25s ease-in-out;
+    -webkit-transition: $effect;
+    -ms-transition: $effect;
+    -o-transition: $effect;
+    transition: $effect;
+}
+
 #root {
   height: 100%;
 }
@@ -40,7 +48,7 @@
         width: 0;
         height: 2px;
         background: var(--color-white);
-        transition: all 0.25s cubic-bezier(1, 0.68, 0.16, 0.9);
+        @include effect;
     }
   
     &:hover {  
