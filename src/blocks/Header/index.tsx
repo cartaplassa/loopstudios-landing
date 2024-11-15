@@ -37,7 +37,7 @@ function Header() {
             {isDesktop ? (
                 <Motto />
             ) : isNavVisible ? (
-                <Nav className="start__nav nav--aligned josefin" />
+                <Nav aligned className="start__nav josefin" />
             ) : (
                 <Motto />
             )}

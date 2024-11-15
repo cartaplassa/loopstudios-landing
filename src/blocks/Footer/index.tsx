@@ -27,7 +27,10 @@ const icons: Record<string, string> = {
 const Icons = () => (
     <div className="footer__icon-wrapper">
         {Object.keys(icons).map(el => (
-            <a href="#" className="footer__icon-link underlined" key={el}>
+            <a
+                href="#"
+                className="footer__icon-link custom-effect-underlined"
+                key={el}>
                 <img src={icons[el]} alt={el} />
             </a>
         ))}
