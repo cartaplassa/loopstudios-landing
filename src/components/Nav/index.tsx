@@ -1,32 +1,40 @@
-import "./index.scss";
 import cn from "@utils/cn";
+
+interface NavLinkProps extends React.ComponentPropsWithoutRef<"a"> {
+    text: string;
+    aligned?: boolean;
+}
+
+function NavLink({href, text, aligned = false}) {
+    const className = cn(
+        "text-white mb-4",
+        "visited:text-white visited:mb-4",
+        "lg:mb-0 lg:visited:mb-0",
+        aligned && "uppercase text-3xl font-heading",
+        "custom-effect-underline",
+    );
+    return (
+        <a href={href} className={className}>
+            {text}
+        </a>
+    );
+}
 
 interface NavProps extends React.ComponentPropsWithoutRef<"nav"> {
     aligned?: boolean;
 }
 
-function Nav({className, aligned, ...rest}: NavProps) {
+const links = ["About", "Careers", "Events", "Products", "Support"];
+function Nav({aligned = false, ...rest}: NavProps) {
+    const className = cn(
+        "flex flex-col items-center",
+        "lg:flex-row lg:gap-8 lg:mt-0",
+        aligned && "items-start justify-center flex-grow mt-8",
+    );
     return (
-        <nav
-            className={cn(
-                "flex flex-col items-center",
-                "lg:flex-row lg:gap-8",
-                aligned && "items-start justify-center flex-grow",
-            )}
-            {...rest}>
-            {["About", "Careers", "Events", "Products", "Support"].map(el => (
-                <a
-                    href="#"
-                    className={cn(
-                        "text-[color:--color-white] mb-4",
-                        "visited:text-[color:--color-white] visited:mb-4",
-                        "lg:mb-0 lg:visited:mb-0",
-                        aligned && "uppercase text-3xl josefin",
-                        "custom-effect-underlined",
-                    )}
-                    key={el}>
-                    {el}
-                </a>
+        <nav className={className} {...rest}>
+            {links.map(el => (
+                <NavLink href="#" text={el} aligned={aligned} key={el} />
             ))}
         </nav>
     );

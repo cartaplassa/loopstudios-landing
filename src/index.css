@@ -1,6 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .custom-effect-tint-0 {
+        background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0) 100%
+        );
+    }
+    .custom-effect-tint-90 {
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.7) 0%,
+            rgba(0, 0, 0, 0) 100%
+        );
+    }
+}
+
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -53,24 +71,14 @@ a:hover {
   min-width: 320px;
   min-height: 100vh;
 } */
+
 body {
     margin: 0;
     width: 100%;
     height: 100%;
 }
 
-h1 {
-    font-size: 3.2em;
-    line-height: 1;
-    text-transform: uppercase;
-}
-
+h1,
 h2 {
-    font-size: 2em;
-    line-height: 1;
     text-transform: uppercase;
-}
-
-.main--desktop h2 {
-    font-size: 3em;
 }
